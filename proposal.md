@@ -9,22 +9,19 @@
 
 
 ## Need to have list
-    Maps that show levels.
-    
-    game play explanation.
-    Characters that can collide with objects.
-    Objects that follows the laws of physics and collide with other objects.
-    Start/Menu page.
-    Restart Game Bottom.
-    Pause Game Bottom.
-    Percfect  running game screen.
-
-
-
+    Maps that show level
+    Characters that can collide with ground.
+    character that move left/right and jump
 
 
 
 ## Nice to have list
+    objects that follow the laws of physics and collide with other objects.
+    game play explanation.
+    Start/Menu page.
+    Pause Game Bottom.
+    Restart Game Bottom.
+    Percfect  running game screen.
 More than 10 different levels.
 Have enemies to make it more difficult.
 customization of the character.

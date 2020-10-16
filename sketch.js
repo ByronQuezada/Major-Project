@@ -25,8 +25,6 @@ let falling;
 
 
 
-
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -45,9 +43,13 @@ function preload() {
   background4 = loadImage("assets/background4.png");
   background5 = loadImage("assets/background5.png");
   running = loadImage("assets/running.png");
+  falling = loadImage("assets/falling.png");
+  jump = loadImage ("assets/jump.png");
 
   
 }
+
+// function 
 
 // Applies gravity and checks if you are on the ground
 function applyGravity() {
