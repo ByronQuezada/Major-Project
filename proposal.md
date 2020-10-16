@@ -12,11 +12,11 @@
     Maps that show levels.
     
     game play explanation.
-     Characters that can collide with objects.
+    Characters that can collide with objects.
     Objects that follows the laws of physics and collide with other objects.
     Start/Menu page.
     Restart Game Bottom.
-    pause Game Bottom.
+    Pause Game Bottom.
     Percfect  running game screen.
 
 

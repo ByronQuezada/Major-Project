@@ -6,7 +6,7 @@
 // - describe what you did to take this project "above and beyond"
 
 let startButton;
-let running;
+
 let isMouseBeingUsed;
 let player;
 //Button Variables
@@ -17,6 +17,13 @@ let isJumping;
 let gravity;
 let spriteX;
 let spriteY;
+//images
+let background1,background2,background3,background4,background5;
+let running;
+let jump;
+let falling;
+
+
 
 
 
@@ -26,11 +33,17 @@ function setup() {
 
 function draw() {
   background(220);
-  image(running, mouseX, mouseY);
+  // image(running, mouseX, mouseY);
   
 }
 
 function preload() {
+  running = loadImage("assets/running.png");
+  background1 = loadImage("assets/background1.png");
+  background2 = loadImage("assets/background2.png");
+  background3 = loadImage("assets/background3.png");
+  background4 = loadImage("assets/background4.png");
+  background5 = loadImage("assets/background5.png");
   running = loadImage("assets/running.png");
 
   
