@@ -12,6 +12,12 @@ let player;
 //Button Variables
 
 let gameStarted = false;
+let isGrounded;
+let isJumping;
+let gravity;
+let spriteX;
+let spriteY;
+
 
 
 function setup() {
@@ -26,27 +32,40 @@ function draw() {
 
 function preload() {
   running = loadImage("assets/running.png");
+
   
 }
-function startGame() {
-  startButton.hide();
-  noCursor();
-  isMouseBeingUsed = true;
-  gameStarted = true;
+
+// Applies gravity and checks if you are on the ground
+function applyGravity() {
+  // Ground Detection
+  isGrounded = collideLineRect(0 - 30, height * 0.63, width + 30, height * 0.63, spriteX, spriteY);
+  
+  if (!isGrounded && !isJumping) {
+    spriteY += gravity;
+  }
 
 }
-//Ending game and displaying try again button
-function endGame() {
-  gameStarted = false;
-  background("black");
-  fill(255);
-  text("GAME OVER", width / 2, height /2);
-  cursor();
+
+// function startGame() {
+//   startButton.hide();
+//   noCursor();
+//   isMouseBeingUsed = true;
+//   gameStarted = true;
+
+// }
+// //Ending game and displaying try again button
+// function endGame() {
+//   gameStarted = false;
+//   background("black");
+//   fill(255);
+//   text("GAME OVER", width / 2, height /2);
+//   cursor();
   
  
-}
-//Displaying start button
-startButton = createButton("Start Game");
-startButton.position(width / 2 - width / 4 / 2, height / 2 - height / 8 / 2);
-startButton.size(width /4, height / 8);
-startButton.mousePressed(startGame);
+// }
+// //Displaying start button
+// startButton = createButton("Start Game");
+// startButton.position(width / 2 - width / 4 / 2, height / 2 - height / 8 / 2);
+// startButton.size(width /4, height / 8);
+// startButton.mousePressed(startGame);
