@@ -1,100 +1,94 @@
-// Project Title
-// Your Name
-// Date
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
-
-let startButton;
-
-let isMouseBeingUsed;
-let player;
-//Button Variables
-
-let gameStarted = false;
-let isGrounded;
-let isJumping;
-let gravity;
-let spriteX;
-let spriteY;
-//images
-let background1,background2,background3,background4,background5;
+// Background managment.
+let background1, background2, background3, background4, background5;
 let running;
-let jump;
-let falling;
+let backgrounds = [];
+let backgroundSelection = [];
+let backgroundColour;
 
 
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-}
+// Counters used to change between sprites, screens/gamestates, and locations
 
-function draw() {
-  background(220);
-  // image(running, mouseX, mouseY);
-  function draw() {
-    if (!is_start) menu();
-    else if (!is_over) play();
-    else over();
-  }
-  
-  
-}
+let state = "start";
+let areaCounter = 0; // Does nothing in this version
 
+// Loads all Images
 function preload() {
-  running = loadImage("assets/running.png");
+  
   background1 = loadImage("assets/background1.png");
   background2 = loadImage("assets/background2.png");
   background3 = loadImage("assets/background3.png");
   background4 = loadImage("assets/background4.png");
   background5 = loadImage("assets/background5.png");
   running = loadImage("assets/running.png");
-  falling = loadImage("assets/falling.png");
-  jump = loadImage ("assets/jump.png");
-
+  
   
 }
 
-// function 
-
-// Applies gravity and checks if you are on the ground
-// function applyGravity() {
-//   // Ground Detection
-//   isGrounded = collideLineRect(0 - 30, height * 0.63, width + 30, height * 0.63, spriteX, spriteY);
+// Setup function runs once at the start of the program
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  imageMode(CENTER);
+  rectMode(CORNER);
+  frameRate(30);
   
-//   if (!isGrounded && !isJumping) {
-//     spriteY += gravity;
-//   }
+  backgrounds = [background1, background2, background3, background4, background5];
+  selectBackgrounds();
+  backgroundColour = 0;
+}
 
-// }
-
-// function startGame() {
-//   startButton.hide();
-//   noCursor();
-//   isMouseBeingUsed = true;
-//   gameStarted = true;
-
-// }
-// //Ending game and displaying try again button
-// function endGame() {
-//   gameStarted = false;
-//   background("black");
-//   fill(255);
-//   text("GAME OVER", width / 2, height /2);
-//   cursor();
-  
+// Set to run 30 times a second
+function draw() {
+  image(running, mouseX, mouseY);
+  if (state === "start") {
+    startScreen();
+  } 
+  else if (state === "play") {
+    clear();
+    
+    displayBackground();
+    
+    
+  }
  
-// }
-// //Displaying start button
-// startButton = createButton("Start Game");
-// startButton.position(width / 2 - width / 4 / 2, height / 2 - height / 8 / 2);
-// startButton.size(width /4, height / 8);
-// startButton.mousePressed(startGame);
-// show menu intro
-function menu() {
-  background(startimg);
-  fill(235, 235, 235);
-  textSize(60);
-  text('Ping Pong', width / 2 - 120, 80);
-  textSize(40);
-  text('Press C to compete', width / 2 - 120, height - 100);
+}
+
+// Makes a start screen
+function startScreen() {
+  push();
+  background(backgroundColour);
+  fill(255);
+  textSize(35);
+  text("click to start game", width / 2, height / 2, CENTER, CENTER);
+  if (mouseIsPressed && state === "start") {
+    state = "play";
+  }
+  pop();
+}
+
+
+
+// Selects which backgounds will be shown
+function selectBackgrounds() {
+  backgroundSelection = [];
+  // This loops however many times the height fits into the width rounded up. It then adds random numbers used to specify which backgrounds will be displayed and in what order. 
+  for (let i = 0; i < Math.ceil(width / height); i++) {
+    backgroundSelection.push(Math.floor(Math.random() * backgrounds.length)); 
+  }
+}
+
+// Displays the bacground image
+function displayBackground() {
+  
+  for (let i = 0; i < Math.ceil(width / height); i++) {
+    image(backgrounds[backgroundSelection[i]], height / 2 + height * i, height/2, height, height);
+  }
+}
+
+
+function displaySprite() {
+
+
+
+}
+
