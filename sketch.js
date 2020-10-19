@@ -32,6 +32,12 @@ function setup() {
 function draw() {
   background(220);
   // image(running, mouseX, mouseY);
+  function draw() {
+    if (!is_start) menu();
+    else if (!is_over) play();
+    else over();
+  }
+  
   
 }
 
@@ -52,15 +58,15 @@ function preload() {
 // function 
 
 // Applies gravity and checks if you are on the ground
-function applyGravity() {
-  // Ground Detection
-  isGrounded = collideLineRect(0 - 30, height * 0.63, width + 30, height * 0.63, spriteX, spriteY);
+// function applyGravity() {
+//   // Ground Detection
+//   isGrounded = collideLineRect(0 - 30, height * 0.63, width + 30, height * 0.63, spriteX, spriteY);
   
-  if (!isGrounded && !isJumping) {
-    spriteY += gravity;
-  }
+//   if (!isGrounded && !isJumping) {
+//     spriteY += gravity;
+//   }
 
-}
+// }
 
 // function startGame() {
 //   startButton.hide();
@@ -84,3 +90,11 @@ function applyGravity() {
 // startButton.position(width / 2 - width / 4 / 2, height / 2 - height / 8 / 2);
 // startButton.size(width /4, height / 8);
 // startButton.mousePressed(startGame);
+// show menu intro
+function menu() {
+  background(startimg);
+  fill(235, 235, 235);
+  textSize(60);
+  text('Ping Pong', width / 2 - 120, 80);
+  textSize(40);
+  text('Press C to compete', width / 2 - 120, height - 100);
