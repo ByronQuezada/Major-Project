@@ -21,7 +21,7 @@ function preload() {
   background4 = loadImage("assets/background4.png");
   background5 = loadImage("assets/background5.png");
   running = loadImage("assets/running.png");
-  
+
   
 }
 
@@ -59,7 +59,7 @@ function startScreen() {
   background(backgroundColour);
   fill(255);
   textSize(35);
-  text("click to start game", width / 2, height / 2, CENTER, CENTER);
+  text("Click To Start Game!", width / 2, height / 2, CENTER, CENTER);
   if (mouseIsPressed && state === "start") {
     state = "play";
   }
