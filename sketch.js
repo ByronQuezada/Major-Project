@@ -4,6 +4,16 @@ let running;
 let backgrounds = [];
 let backgroundSelection = [];
 let backgroundColour;
+let playHealth = 100;
+let spriteX;
+let spriteY;
+let isMovingLeft, isMovingRight, isJumping;
+let isGrounded = false;
+let initialY;
+let jumpHeight = 70;
+let jumpSpeed = 8;
+let gravity = 2;
+let movementSpeed = 7;
 
 
 
@@ -24,6 +34,13 @@ function preload() {
 
   
 }
+function preloadDog() {
+  running = loadImage("assets/running.png");
+  image(running, mouseX, mouseY,CENTER, CENTER);
+
+  
+
+}
 
 // Setup function runs once at the start of the program
 function setup() {
@@ -31,6 +48,7 @@ function setup() {
   imageMode(CENTER);
   rectMode(CORNER);
   frameRate(30);
+
   
   backgrounds = [background1, background2, background3, background4, background5];
   selectBackgrounds();
@@ -65,6 +83,19 @@ function startScreen() {
   }
   pop();
 }
+function nextScreen() {
+  if (spriteX > width + 10) {
+    spriteX = 0;
+    selectBackgrounds();
+    areaCounter++;
+  } 
+  else if (spriteX < 0 - 25) {
+    spriteX = width;
+    selectBackgrounds();  
+    areaCounter++;
+  }
+}
+
 
 
 
