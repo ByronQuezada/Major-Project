@@ -38,6 +38,7 @@ function preloadDog() {
   running = loadImage("assets/running.png");
   image(running, mouseX, mouseY,CENTER, CENTER);
 
+
   
 
 }
@@ -71,7 +72,7 @@ function draw() {
  
 }
 
-// Makes a start screen
+// Create a start screen.
 function startScreen() {
   push();
   background(backgroundColour);
@@ -99,7 +100,7 @@ function nextScreen() {
 
 
 
-// Selects which backgounds will be shown
+// Selects the background that will apper.
 function selectBackgrounds() {
   backgroundSelection = [];
   // This loops however many times the height fits into the width rounded up. It then adds random numbers used to specify which backgrounds will be displayed and in what order. 
