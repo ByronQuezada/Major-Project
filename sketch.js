@@ -69,6 +69,7 @@ function draw() {
     image(standing, mouseX, mouseY, 100, 100);
     
   }
+  // /
  
 }
 
@@ -124,4 +125,11 @@ function displaySprite() {
 
 }
 
+// function winState() {
+//   background(255);
+//   fill(0);
+//   textSize(85);
+//   textAlign(CENTER, CENTER);
+//   text("YOU WIN!", width/2, height/2);
+// }
 
