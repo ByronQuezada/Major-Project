@@ -1,6 +1,6 @@
 // Background managment.
 let background1, background2, background3, background4, background5;
-let running;
+let celebrating,dead,falling, shooting, standing, walkingleft,walkingright;
 let backgrounds = [];
 let backgroundSelection = [];
 let backgroundColour;
@@ -30,18 +30,18 @@ function preload() {
   background3 = loadImage("assets/background3.png");
   background4 = loadImage("assets/background4.png");
   background5 = loadImage("assets/background5.png");
-  running = loadImage("assets/running.png");
+  standing = loadImage("assets/standing.png");
 
   
 }
-function preloadDog() {
-  running = loadImage("assets/running.png");
-  image(running, mouseX, mouseY,CENTER, CENTER);
+// function preloadDog() {
+//   standing = loadImage("assets/standing.png");
+//   image(standing, mouseX, mouseY,CENTER, CENTER);
 
 
   
 
-}
+// }
 
 // Setup function runs once at the start of the program
 function setup() {
@@ -58,7 +58,6 @@ function setup() {
 
 // Set to run 30 times a second
 function draw() {
-  image(running, mouseX, mouseY);
   if (state === "start") {
     startScreen();
   } 
@@ -67,6 +66,7 @@ function draw() {
     
     displayBackground();
     
+    image(standing, mouseX, mouseY, 100, 100);
     
   }
  
@@ -123,4 +123,5 @@ function displaySprite() {
 
 
 }
+
 
