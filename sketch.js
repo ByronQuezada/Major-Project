@@ -59,6 +59,12 @@ function setup() {
 
 // Set to run 30 times a second
 function draw() {
+  //instructions button
+  fill(255);
+  text("How to Play", width / 2, height / 2 + 350);
+  if (mouseIsPressed) {
+    gameMode = "instructions menu";
+  }
   if (state === "start") {
     startScreen();
   } 
@@ -186,3 +192,55 @@ function keyPressed() {
 //   text("YOU WIN!", width/2, height/2);
 // }
 
+
+//displaying instructions screen
+function showInstructions() {
+  background(200);
+  rectMode(CENTER);
+  textAlign(CENTER, CENTER);
+
+  textSize(100);
+  fill(0);
+  text("Instructions", width / 2, height / 2 - 350);
+
+  //writing out instructions
+  textSize(30);
+  fill(0);
+  text(
+    "Use the WASD keys to control the plane and the Space Button to shoot",
+    width / 2,
+    height / 2 - 150
+  );
+  text(
+    "Aliens will come down in waves to try and destroy you",
+    width / 2,
+    height / 2 - 80
+  );
+  text("Easy: Seven Seconds Per Wave", width / 2 - 300, height / 2 - 30);
+  text("Hard: Two Seconds Per Wave", width / 2 + 300, height / 2 - 30);
+  text(
+    "If you are hit by an Alien or one reaches the bottom, it's GAME OVER",
+    width / 2,
+    height / 2 + 50
+  );
+  text(
+    "Get the HIGHEST SCORE POSSIBLE before the Aliens win",
+    width / 2,
+    height / 2 + 135
+  );
+  text(
+    "Press the L key to switch between basic and double shot",
+    width / 2,
+    height / 2 + 215
+  );
+  text(
+    "To access the main menu at any time, press the m key",
+    width / 2,
+    height / 2 + 250
+  );
+
+  //back to main menu button
+  textSize(80);
+  fill(255);
+  text("back", 250, 125);
+}
